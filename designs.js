@@ -102,17 +102,13 @@ window.addEventListener('load', function() {
      * @description Draw the grid according the given form values (height & width)
      */
     function makeGrid() {
-        // first remove first child element (which is a 'tbody')
+        // first remove first child element
         if ( table.firstElementChild )
-            table.firstElementChild.remove();
-
-        // add a table body as first child element to the table
-        let tbody = document.createElement('tbody');
-        table.appendChild(tbody);
+            table.innerHTML = '';
 
         // add rows corresponding to the submitted height
         for ( let itHeight = 0; itHeight < formData.get('height'); itHeight++ ) {
-            let newRow = tbody.insertRow(-1);
+            let newRow = table.insertRow(-1);
             // add cells on each row corresponding to the submitted width
             for ( let itWidth = 0; itWidth < formData.get('width'); itWidth++ ) {
                 let newCell = newRow.insertCell(-1);
